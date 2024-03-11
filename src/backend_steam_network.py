@@ -186,7 +186,7 @@ class SteamNetworkBackend(BackendInterface):
     async def _get_websocket_auth_step(self):
         try:
             result = await asyncio.wait_for(
-                self._websocket_client.communication_queues["plugin"].get(), 20
+                self._websocket_client.communication_queues["plugin"].get(), 10
             )
             return result["auth_result"]
         except asyncio.TimeoutError:
